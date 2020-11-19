@@ -27,6 +27,4 @@ jobs:
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
         PROJECT_FILE_PATH: Coco.Producer/Coco.Producer.csproj
-        VERSION_REGEX: '^\s*<PackageVersion>(.*)<\/PackageVersion>\s*$'
-        TAG_FORMAT: '*'
         NUGET_KEY: ${{secrets.NUGET_API_KEY}}
