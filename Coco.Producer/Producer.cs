@@ -13,21 +13,21 @@ namespace Coco.Producer
         {
             Host = hostUrl;
         }
-        public void Push(string host, string topicName, string msg)
+        public void Push(string host, string topicName, string message)
         {
             IPAddress ipa = IPAddress.Parse(host);
             IPEndPoint ipe = new IPEndPoint(ipa, 9527);
-            Send(ipe, topicName, msg);
+            Send(ipe, topicName, message);
         }
-        public void Push(string topicName, string msg)
+        public void Push(string topicName, string message)
         {
             //string Host = "127.0.0.1";
             IPAddress ipa = IPAddress.Parse(Host);
             IPEndPoint ipe = new IPEndPoint(ipa, 9527);
-            Send(ipe, topicName, msg);
+            Send(ipe, topicName, message);
         }
 
-        public void Send(IPEndPoint ipe, string topicName, string msg)
+        public void Send(IPEndPoint ipe, string topicName, string message)
         {
             TcpClient tcpClient = new TcpClient();
             try
@@ -41,7 +41,7 @@ namespace Coco.Producer
                     cb.SendMsg(topicName, tcpClient);
                     cb.ReceiveMsg(tcpClient);
                     //Console.WriteLine("生产者推送消息：{0}", msg);
-                    cb.SendMsg(msg, tcpClient);
+                    cb.SendMsg(message, tcpClient);
                     cb.ReceiveMsg(tcpClient);
                 }
             }
