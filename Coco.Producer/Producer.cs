@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 namespace Coco.Producer
 {
@@ -21,7 +19,6 @@ namespace Coco.Producer
         }
         public void Push(string topicName, string message)
         {
-            //string Host = "127.0.0.1";
             IPAddress ipa = IPAddress.Parse(Host);
             IPEndPoint ipe = new IPEndPoint(ipa, 9527);
             Send(ipe, topicName, message);
@@ -36,12 +33,8 @@ namespace Coco.Producer
                 if (tcpClient.Connected)
                 {
                     CommunicationBase cb = new CommunicationBase();
-                    cb.SendMsg(0.ToString(), tcpClient);
-                    cb.ReceiveMsg(tcpClient);
-                    cb.SendMsg(topicName, tcpClient);
-                    cb.ReceiveMsg(tcpClient);
-                    //Console.WriteLine("生产者推送消息：{0}", msg);
-                    cb.SendMsg(message, tcpClient);
+                    var content = $"0\\{topicName}\\{message}";
+                    cb.SendMsg(content, tcpClient);
                     cb.ReceiveMsg(tcpClient);
                 }
             }
