@@ -1,7 +1,6 @@
 # Coco.Producer
 
-Coco是一个使用dotnet来实现的简单高效消息队列
-本项目是Coco消息队列的生产者插件
+[Coco](https://github.com/sbchong/Coco)是一个使用dotnet来实现的简单高效消息队列，本项目是Coco消息队列的生产者插件.
 
 ## 使用方法
 
