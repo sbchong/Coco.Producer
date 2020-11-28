@@ -1,4 +1,4 @@
-name: Coco.Producer CI/CD
+name: Coco.Producer
 
 on:
   push:
