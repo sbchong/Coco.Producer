@@ -7,20 +7,27 @@ namespace Coco.Producer
     public class Producer : IProducer
     {
         public string Host { get; set; } = "127.0.0.1";
-        public Producer(string hostUrl)
+        public string Port { get; set; } = "9527";
+        public Producer()
         {
-            Host = hostUrl;
+
         }
-        public void Push(string host, string topicName, string message)
+        public Producer(string host,string port)
         {
-            IPAddress ipa = IPAddress.Parse(host);
-            IPEndPoint ipe = new IPEndPoint(ipa, 9527);
+            Host = host;
+            Port = port;
+        }
+        public void Push(string hostUrl, string topicName, string message)
+        {
+            string[] hp = hostUrl.Split(':');
+            IPAddress ipa = IPAddress.Parse(hp[0]);
+            IPEndPoint ipe = new IPEndPoint(ipa, Convert.ToInt32(hp[1]));
             Send(ipe, topicName, message);
         }
         public void Push(string topicName, string message)
         {
             IPAddress ipa = IPAddress.Parse(Host);
-            IPEndPoint ipe = new IPEndPoint(ipa, 9527);
+            IPEndPoint ipe = new IPEndPoint(ipa, Convert.ToInt32(Port));
             Send(ipe, topicName, message);
         }
 

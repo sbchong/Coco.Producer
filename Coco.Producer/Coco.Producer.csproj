@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.3.1</Version>
     <Authors>liux</Authors>
     <RepositoryUrl>https://github.com/sbchong/Coco.Producer.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/sbchong/Coco.Producer</PackageProjectUrl>
@@ -12,6 +12,8 @@
     <RepositoryType>git</RepositoryType>
     <Description>消息队列Coco的生产者扩展包</Description>
     <LangVersion>latest</LangVersion>
+    <AssemblyVersion>1.0.3.1</AssemblyVersion>
+    <FileVersion>1.0.3.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
