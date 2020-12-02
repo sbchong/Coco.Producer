@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.3.3</Version>
+    <Version>1.0.3.4</Version>
     <Authors>liux</Authors>
     <RepositoryUrl>https://github.com/sbchong/Coco.Producer.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/sbchong/Coco.Producer</PackageProjectUrl>
