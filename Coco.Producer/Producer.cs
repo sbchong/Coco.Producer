@@ -17,21 +17,21 @@ namespace Coco.Producer
             Host = host;
             Port = port;
         }
-        public void Push(string hostUrl, string topicName, string message)
+        public void Publish(string hostUrl, string topicName, string message)
         {
             string[] hp = hostUrl.Split(':');
             IPAddress ipa = IPAddress.Parse(hp[0]);
             IPEndPoint ipe = new IPEndPoint(ipa, Convert.ToInt32(hp[1]));
             Send(ipe, topicName, message);
         }
-        public void Push(string topicName, string message)
+        public void Publish(string topicName, string message)
         {
             IPAddress ipa = IPAddress.Parse(Host);
             IPEndPoint ipe = new IPEndPoint(ipa, Convert.ToInt32(Port));
             Send(ipe, topicName, message);
         }
 
-        public void Send(IPEndPoint ipe, string topicName, string message)
+        private void Send(IPEndPoint ipe, string topicName, string message)
         {
             TcpClient tcpClient = new TcpClient();
             try

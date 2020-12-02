@@ -2,7 +2,10 @@
 {
     public interface IProducer
     {
-        void Push(string topicName, string message);
-        void Push(string host, string topicName, string message);
+        public string Host { get; set; }
+        public string Port { get; set; }
+
+        void Publish(string topicName, string message);
+        void Publish(string hostUrl, string topicName, string message);
     }
 }
