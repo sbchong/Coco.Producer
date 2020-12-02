@@ -7,5 +7,7 @@
 
         void Publish(string topicName, string message);
         void Publish(string hostUrl, string topicName, string message);
+        void Publish(string topicName, object msg);
+        void Publish<T>(string topicName, T msg) where T : class;
     }
 }
